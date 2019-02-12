@@ -1,4 +1,10 @@
 ---
+- name: RedHat - include extras repo
+  command: yum-config-manager --enable rhui-REGION-rhel-server-extras
+  sudo: yes
+  when:
+    - ansible_distribution == 'RedHat'
+
 - name: Update package management cache (YUM)
   yum:
     update_cache: yes
